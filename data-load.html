@@ -17,6 +17,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="stayle/data.css">
+    <link rel="stylesheet" href="stayle/card.css">
 
     <title>GitHub Issue Tracker</title>
 </head>
@@ -42,8 +43,8 @@
     <div>
         <div class="tabs tabs-box">
             <input type="radio" name="my_tabs_1" class="tab" aria-label="All" checked="checked"/>
-            <input type="radio" name="my_tabs_1" class="tab" aria-label="Open" />
-            <input type="radio" name="my_tabs_1" class="tab" aria-label="Closed" />
+            <input type="radio" id="open-status" name="my_tabs_1" class="tab" aria-label="Open" />
+            <input type="radio" id="close-status" name="my_tabs_1" class="tab" aria-label="Closed" />
         </div>
     </div>
 
@@ -52,7 +53,7 @@
         <div class="issu-header">
             <div><img src="assets/Aperture.png" alt=""></div>
             <div>
-                <p><span>0</span> Issues</p>
+                <p><span id="data-count">0</span> Issues</p>
                 <p>Track and manage your project issues</p>
             </div>
         </div>
@@ -65,46 +66,7 @@
         <span class="loading hidden loading-spinner loading-xl"></span>
     </div>
 
-    <div class="data-body" id="data-Box">
-
-
-       <div class="card">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <div class="priority-badge">LOW</div>
-        </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-            <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
-            </div>
-        </div>
-
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
-        </div>
-        </div>
-
-
-
-    </div>
-
-
-
-
-
+    <div class="data-body" id="data-Box"> </div>
 </main>
    
     <script src="js file/data.js"></script>

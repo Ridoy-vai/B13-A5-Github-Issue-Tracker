@@ -30,11 +30,14 @@
             width: 380px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            border-top: 6px solid #a855f7; /* Purple top border */
+            /* Purple top border */
             overflow: hidden;
             display: flex;
             flex-direction: column;
         }
+
+        .open-border{ border-top: 6px solid #a855f7;}
+        .close-border{}
 
         /* Header section (Icon & Priority) */
         .card-header {
@@ -126,342 +129,39 @@
 </head>
 <body>
 
-    <div class="card">
+    <div class="card open-border">
         <!-- Icon and Priority Badge -->
         <div class="card-header">
             <div class="icon-circle">
                 <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+                <div width="20" height="20" >
+                    <img src="assets/Open-Status.png" alt="">
+                </div>
             </div>
-            <div class="priority-badge">LOW</div>
+            <div class="priority-badge"> ${element.priority}</div>
         </div>
 
         <!-- Task Info -->
         <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
+            <h2 class="card-title"> ${element.title}</h2>
+            <p class="card-desc">${element.description}</p>
             
+            <div>
             <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
+                <span class="sparkle-icon"> ${element.labels[0]}</span>
+            </div>
+            <div class="tag-enhancement">
+                <span class="sparkle-icon"> ${element.labels[1]}</span>
+            </div>
             </div>
         </div>
 
         <!-- Metadata -->
         <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
+            <p class="footer-text">${element.id} ${element.author}</p>
+            <p class="footer-date"> ${element.updatedAt}</p>
         </div>
-    </div>
-    <div class="card">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <div class="priority-badge">LOW</div>
-        </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-            <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
-            </div>
-        </div>
-
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
-        </div>
-    </div>
-    <div class="card">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <div class="priority-badge">LOW</div>
-        </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-            <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
-            </div>
-        </div>
-
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
-        </div>
-    </div>
-    <div class="card">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <div class="priority-badge">LOW</div>
-        </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-            <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
-            </div>
-        </div>
-
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
-        </div>
-    </div>
-    <div class="card">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <div class="priority-badge">LOW</div>
-        </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-            <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
-            </div>
-        </div>
-
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
-        </div>
-    </div>
-    <div class="card">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <div class="priority-badge">LOW</div>
-        </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-            <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
-            </div>
-        </div>
-
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
-        </div>
-    </div>
-    <div class="card">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <div class="priority-badge">LOW</div>
-        </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-            <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
-            </div>
-        </div>
-
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
-        </div>
-    </div>
-    <div class="card">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <div class="priority-badge">LOW</div>
-        </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-            <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
-            </div>
-        </div>
-
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
-        </div>
-    </div>
-    <div class="card">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <div class="priority-badge">LOW</div>
-        </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-            <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
-            </div>
-        </div>
-
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
-        </div>
-    </div>
-    <div class="card">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <div class="priority-badge">LOW</div>
-        </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-            <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
-            </div>
-        </div>
-
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
-        </div>
-    </div>
-    <div class="card">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <div class="priority-badge">LOW</div>
-        </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-            <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
-            </div>
-        </div>
-
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
-        </div>
-    </div>
-    <div class="card">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <div class="priority-badge">LOW</div>
-        </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title">Fix Navigation Menu On Mobile Devices</h2>
-            <p class="card-desc">The navigation menu doesn't collapse properly on mobile devices...</p>
-            
-            <div class="tag-enhancement">
-                <span class="sparkle-icon">✨</span> ENHANCEMENT
-            </div>
-        </div>
-
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">#1 by john_doe</p>
-            <p class="footer-date">1/15/2024</p>
-        </div>
-    </div>
+        </div> `;
 
 </body>
 </html>
