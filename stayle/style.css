@@ -1,0 +1,71 @@
+/* Body Style */
+body{
+    background-color: #F8FAFC;
+    height: 100vw;
+}
+
+/* Center Utility */
+.m-auto{
+    margin: 0 auto;
+}
+
+.demo{
+    text-align: center;
+    margin-top: 25px;
+    background-color: #F8FAFC;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Main Container */
+#main-box{
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Header Section */
+.form-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+/* Header Title */
+.form-header h2{
+    font-weight: 700;
+    font-size: 24px;
+    color: #1F2937;
+}
+
+/* Header Description */
+.form-header p{
+    color: #64748B;
+    font-size: 16px;
+}
+
+/* Logo Container */
+.form-logo{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Logo Image */
+.form-logo img{
+    width: 80px;
+}
+
+
+.label {
+    color: #1F2937;
+    font-weight: 500;
+}

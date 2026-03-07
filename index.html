@@ -1,11 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Basic Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!-- DaisyUI & TailwindCSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stayle/style.css">
+
+    <title>GitHub Issue Tracker</title>
 </head>
+
 <body>
-    
+
+    <section id="main-box">
+
+        <!-- Header -->
+        <header class="form-header">
+            <div class="form-logo">
+                <img src="assets/github-logo.png" alt="GitHub Logo">
+            </div>
+
+            <h2>GitHub Issues Tracker</h2>
+            <p>Sign in to manage your issues</p>
+        </header>
+
+        <!-- Login Form -->
+        <form class="m-auto fieldset rounded-box w-full p-4">
+
+            <!-- Username -->
+            <label class="label f">Username</label>
+            <input type="text" class="input w-full" placeholder="Enter Username" />
+
+            <!-- Password -->
+            <label class="label">Password</label>
+            <input type="password" class="input w-full" placeholder="Enter Password"/>
+
+            <!-- Button -->
+            <button class="btn btn-primary mt-4">Sign In</button>
+
+        </form>
+
+        <hr>
+
+        <div class="m-auto demo">
+            <p>Username : admin</p>
+            <p>Password : admin123</p>
+        </div>
+
+    </section>
+
 </body>
 </html>
