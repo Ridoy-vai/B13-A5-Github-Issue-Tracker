@@ -1,25 +1,96 @@
 const openTab = []
 const closeTab = []
-console.log(closeTab)
+const allTab = [] 
 
 const allIssueUrl = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
 const dataBox = document.getElementById("data-Box");
 const allData = document.getElementById("data-count")
+const allStatus = document.getElementById("all-status")
 const openStatus = document.getElementById("open-status")
 const closeStatus = document.getElementById("close-status")
-
-
-
-
 
 fetch(allIssueUrl)
   .then(res => res.json())
   .then(datas => loadData(datas))
 
 function loadData(datas) {
-
   datas.data.forEach(element => {
+    allTab.push(element); // ২. সব ডাটা এই অ্যারেতে জমা হচ্ছে
+const card = document.createElement("div");
+card.innerHTML = `
+  <div class="card">
+    <div class="card-header">
+      <div class="icon-circle">
+        <img src="" alt="">
+      </div>
+      <div class="priority-badge">${element.priority}</div>
+    </div>
+    <div class="card-body">
+      <h2 class="card-title">${element.title}</h2>
+      <p class="card-desc">${element.description}</p>
+      <div>
+        <div class="tag-enhancement tag-enhancement-one">
+          <span class="sparkle-icon lable-one">${element.labels[0] || ""}</span>
+        </div>
+        <div class="tag-enhancement tag-enhancement-two">
+          <span class="sparkle-icon lable-two">${element.labels[1] || ""}</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <p class="footer-text">${element.id} ${element.author}</p>
+      <p class="footer-date">${element.updatedAt}</p>
+    </div>
+  </div>
+`;
 
+dataBox.append(card);
+
+const innerCard = card.querySelector(".card");
+const priorityBadge = card.querySelector(".priority-badge");
+const statusIcon = card.querySelector(".icon-circle img");
+const lableOne = card.querySelector(".lable-one");
+const lableTwo = card.querySelector(".lable-two");
+const tagEnhancementOne = card.querySelector(".tag-enhancement-one");
+const tagEnhancementTwo = card.querySelector(".tag-enhancement-two");
+
+// Open/Close status
+if (element.status === "open") {
+  innerCard.classList.add("open-border");
+  statusIcon.src = "assets/Open-Status.png";
+  openTab.push(element);
+} else {
+  innerCard.classList.add("close-border");
+  statusIcon.src = "assets/Closed-Status.png";
+  closeTab.push(element);
+}
+if (lableTwo.innerText  === undefined|| lableTwo.innerText === "") {
+        tagEnhancementTwo.classList.add("hidden");
+         }
+
+if(lableOne.innerText === undefined || lableOne.innerText === "") {
+        tagEnhancementOne.classList.add("hidden");
+         }
+// Priority styling
+if (element.priority === "high") priorityBadge.classList.add("priority_high");
+else if (element.priority === "medium") priorityBadge.classList.add("priority_medium");
+else if (element.priority === "low") priorityBadge.classList.add("priority_low");
+
+// লেবেল খালি থাকলে hide করা
+
+  
+    });
+
+ 
+  
+  allData.innerText = dataBox.children.length;  
+};
+
+
+allStatus.addEventListener("click", () => {
+  dataBox.innerHTML = ""; 
+
+  allTab.forEach(element => {
     let card = document.createElement("div");
     card.innerHTML = `
     <div class="card">
@@ -27,14 +98,11 @@ function loadData(datas) {
             <div class="icon-circle">
                 <img src="" alt="">
             </div>
-
             <div class="priority-badge">${element.priority}</div>
         </div>
-
         <div class="card-body">
             <h2 class="card-title">${element.title}</h2>
             <p class="card-desc">${element.description}</p>
-
             <div>
                 <div class="tag-enhancement">
                     <span class="sparkle-icon">${element.labels[0] ?? ""}</span>
@@ -44,7 +112,6 @@ function loadData(datas) {
                 </div>
             </div>
         </div>
-
         <div class="card-footer">
             <p class="footer-text">${element.id} ${element.author}</p>
             <p class="footer-date">${element.updatedAt}</p>
@@ -58,35 +125,21 @@ function loadData(datas) {
     const priorityBadge = card.querySelector(".priority-badge");
     const statusIcon = card.querySelector(".icon-circle img");
 
-    /* -------- Status -------- */
-
     if (element.status === "open") {
       innerCard.classList.add("open-border");
       statusIcon.src = "assets/Open-Status.png";
-      openTab.push(element)
     } else {
       innerCard.classList.add("close-border");
       statusIcon.src = "assets/Closed-Status.png";
-      closeTab.push(element)
     }
 
-    /* -------- Priority -------- */
+    if (element.priority === "high") priorityBadge.classList.add("priority_high");
+    else if (element.priority === "medium") priorityBadge.classList.add("priority_medium");
+    else if (element.priority === "low") priorityBadge.classList.add("priority_low");
+  });
 
-    if (element.priority === "high") {
-      priorityBadge.classList.add("priority_high");
-    }
-    else if (element.priority === "medium") {
-      priorityBadge.classList.add("priority_medium");
-    }
-    else if (element.priority === "low") {
-      priorityBadge.classList.add("priority_low");
-    }
-
-  }); // loop end
-
-  allData.innerText = dataBox.children.length;
-
-};
+  allData.innerText = allTab.length;
+});
 
 
  openStatus.addEventListener("click", () => {
@@ -204,6 +257,3 @@ function loadData(datas) {
   allData.innerText = closeTab.length;
 });
     
-
-
-

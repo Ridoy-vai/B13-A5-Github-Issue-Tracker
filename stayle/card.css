@@ -100,6 +100,10 @@
             font-size: 16px;
         }
 
+        .hidden{
+            display: none;
+        }
+
         /* Footer section */
         .card-footer {
             padding: 24px;
