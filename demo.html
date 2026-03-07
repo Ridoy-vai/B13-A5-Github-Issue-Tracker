@@ -128,40 +128,82 @@
     </style>
 </head>
 <body>
-
-    <div class="card open-border">
-        <!-- Icon and Priority Badge -->
-        <div class="card-header">
-            <div class="icon-circle">
-                <!-- SVG Checkmark Icon -->
-                <div width="20" height="20" >
-                    <img src="assets/Open-Status.png" alt="">
-                </div>
-            </div>
-            <div class="priority-badge"> ${element.priority}</div>
+<dialog id="my_modal_1" class="modal modal-bottom sm:modal-middle transition-all duration-300">
+  <div class="modal-box max-w-xl p-0 overflow-hidden bg-base-100 shadow-2xl border border-base-200">
+    
+    <!-- Modal Header with Close Button -->
+    <div class="relative h-2 w-full bg-primary"></div> <!-- Top accent bar -->
+    <div class="flex justify-between items-start p-6 pb-0">
+      <div class="flex items-center gap-4">
+        <div class="avatar placeholder">
+          <div class="bg-primary text-primary-content rounded-full w-12 shadow-md">
+            <!-- Icon/Initial based on author -->
+            <span class="text-xl font-bold">${modal.author.charAt(0)}</span>
+          </div>
         </div>
-
-        <!-- Task Info -->
-        <div class="card-body">
-            <h2 class="card-title"> ${element.title}</h2>
-            <p class="card-desc">${element.description}</p>
-            
-            <div>
-            <div class="tag-enhancement">
-                <span class="sparkle-icon"> ${element.labels[0]}</span>
-            </div>
-            <div class="tag-enhancement">
-                <span class="sparkle-icon"> ${element.labels[1]}</span>
-            </div>
-            </div>
+        <div>
+          <div class="badge badge-error badge-outline font-semibold uppercase text-[10px] tracking-widest mb-1">
+            ${modal.priority} Priority
+          </div>
+          <h2 class="text-2xl font-bold text-base-content tracking-tight">
+            ${modal.title}
+          </h2>
         </div>
+      </div>
+      <form method="dialog">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-4 top-4">✕</button>
+      </form>
+    </div>
 
-        <!-- Metadata -->
-        <div class="card-footer">
-            <p class="footer-text">${element.id} ${element.author}</p>
-            <p class="footer-date"> ${element.updatedAt}</p>
-        </div>
-        </div> `;
+    <!-- Modal Body -->
+    <div class="p-6 space-y-4">
+      <p class="text-base-content/70 leading-relaxed text-lg">
+        ${modal.description}
+      </p>
+
+      <!-- Tags Section -->
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="badge badge-secondary badge-lg py-4 px-4 gap-2 font-medium italic">
+          ✨ ${labels[0] || "General"}
+        </span>
+        <span class="badge badge-accent badge-lg py-4 px-4 gap-2 font-medium italic">
+          🚀 ${labels[1] || "Update"}
+        </span>
+      </div>
+    </div>
+
+    <!-- Modal Footer Info -->
+    <div class="bg-base-200/50 p-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex flex-col">
+        <span class="text-xs uppercase font-bold text-base-content/40 tracking-wider">Created By</span>
+        <span class="text-sm font-medium text-base-content italic underline decoration-primary underline-offset-4">
+          ID: ${modal.id} — ${modal.author}
+        </span>
+      </div>
+      
+      <div class="text-right">
+        <span class="text-xs uppercase font-bold text-base-content/40 tracking-wider block">Last Updated</span>
+        <span class="text-sm font-semibold text-base-content/80">
+          ${modal.updatedAt}
+        </span>
+      </div>
+    </div>
+
+    <!-- Final Action Button -->
+    <div class="modal-action p-4 pt-0">
+      <form method="dialog" class="w-full">
+        <button class="btn btn-primary w-full shadow-lg hover:shadow-primary/30 transition-all">
+          Got It, Thanks!
+        </button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Backdrop (Click outside to close) -->
+  <form method="dialog" class="modal-backdrop bg-black/40 backdrop-blur-sm">
+    <button>close</button>
+  </form>
+</dialog>
 
 </body>
 </html>
