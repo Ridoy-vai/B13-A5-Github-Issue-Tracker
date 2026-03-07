@@ -1,0 +1,57 @@
+*{
+    font-family: "Geist", sans-serif;
+}
+.navbar{
+    padding: 10px 80px;
+}
+.nav{
+    align-items: center;
+    
+}
+.nav p{
+    font-weight: 600;
+    font-size: 24px;
+    color: #1F2937;
+}
+.nav-logo{
+    width: 30px;
+    margin-right: 10px;
+}
+.isuBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+}
+.issu-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.issu-status{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.issu-status .close-status, .issu-status .open-status{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #A855F7;
+}
+.issu-status .open-status{
+    background-color: #00A96E;
+}
+
+.loader-box{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.loading{
+   
+}

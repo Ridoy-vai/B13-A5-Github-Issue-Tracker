@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- DaisyUI & TailwindCSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google fonr -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stayle/data.css">
+
+    <title>GitHub Issue Tracker</title>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="flex flex-1 nav">
+                <div class="nav-logo">
+                    <img src="assets/github-logo.png" alt="">
+                </div>
+                <p>GitHub Issues Tracker</p>
+            </div>
+            <div class="flex gap-2">
+                <input type="text" placeholder="Search issue" class="input input-bordered w-24 md:w-auto" />
+                <button class="btn btn-primary">+ new Issue</button>
+            </div>
+        </div>
+    </nav>
+
+<main class="max-w-[1100px] mx-auto mt-4">
+        <!-- name of each tab group should be unique -->
+    <div>
+        <div class="tabs tabs-box">
+            <input type="radio" name="my_tabs_1" class="tab" aria-label="All" checked="checked"/>
+            <input type="radio" name="my_tabs_1" class="tab" aria-label="Open" />
+            <input type="radio" name="my_tabs_1" class="tab" aria-label="Closed" />
+        </div>
+    </div>
+
+
+    <div class="isuBox">
+        <div class="issu-header">
+            <div><img src="assets/Aperture.png" alt=""></div>
+            <div>
+                <p><span>0</span> Issues</p>
+                <p>Track and manage your project issues</p>
+            </div>
+        </div>
+        <div class="issu-status">
+            <span class="open-status"></span><p>Open</p><span class="close-status"></span><p>close</p>
+        </div>
+    </div>
+
+    <div class="loader-box">
+        <span class="loading loading-spinner loading-xl"></span>
+    </div>
+
+    <div class="data-body" id="data-Box">
+        <div class="card">
+            <div><img src="assets/Open-Status.png" alt=""> <p>ggg</p></div>
+            <h2>higer vallue demand type</h2>
+            <p>The navigation menu doesn't collapse properly on mobile devices...</p>
+            <span><p>big</p> <p>hellped</p></span>
+        </div>
+    </div>
+
+
+
+
+
+</main>
+   
+    <script src="js file/data.js"></script>
+</body>
+</html>
