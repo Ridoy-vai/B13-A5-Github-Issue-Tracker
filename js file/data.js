@@ -13,13 +13,30 @@ const openStatus = document.getElementById("open-status")
 const closeStatus = document.getElementById("close-status")
 const search = document.getElementById("search-input")
 const searchButton = document.getElementById("search-button")
+const loaderBox = document.getElementById("loader")
 
 // fetch funtion jeson to object creat
 fetch(allIssueUrl).then(res => res.json()).then(datas => loadData(datas))
 
+const spinerDisplay=(status)=>{
+  if(status == true){
+    loaderBox.classList.remove("hidden")
+    // dataBox.classList.add("hidden")
+    dataBox.style.display = "none";
+  }else{
+    loaderBox.classList.add("hidden")
+    // dataBox.classList.remove("hidden")
+    dataBox.style.display = "";
+  }
+}
+
 // load data funtion defolt load
 function loadData(datas) {
-    datas.data.forEach(element => {
+
+  spinerDisplay(true)
+  
+  
+  datas.data.forEach(element => {
     allTab.push(element);
 const card = document.createElement("div");
 card.innerHTML = `
@@ -101,6 +118,10 @@ else if (element.priority === "low") priorityBadge.classList.add("priority_low")
 
 
 });
+
+spinerDisplay(false)
+// loaderBox.classList.add("hidden")
+//   dataBox.classList.remove("hidden")
   
 allData.innerText = dataBox.children.length;  
 
@@ -108,6 +129,9 @@ allData.innerText = dataBox.children.length;
 
 // all button tab click data load funtion
 allStatus.addEventListener("click", () => {
+
+  spinerDisplay(true)
+
   dataBox.innerHTML = ""; 
 
   allTab.forEach(element => {
@@ -176,12 +200,17 @@ allStatus.addEventListener("click", () => {
 
   });
 
+  spinerDisplay(false)
+
     allData.innerText = dataBox.children.length;
 
 });
 
 //  open button tab click data load funtion
 openStatus.addEventListener("click", () => {
+
+  spinerDisplay(true)
+
   dataBox.innerHTML = "";
 
   openTab.forEach(openData => {
@@ -248,11 +277,16 @@ openStatus.addEventListener("click", () => {
     else if (openData.priority === "low") priorityBadge.classList.add("priority_low");
   });
 
+    spinerDisplay(false)
+
   allData.innerText = openTab.length;
 });
 
 //  close button tab click data load funtion
 closeStatus.addEventListener("click", () => {
+
+    spinerDisplay(true)
+
   dataBox.innerHTML = ""; // clear previous cards
 
   closeTab.forEach(closeData => {
@@ -319,11 +353,17 @@ closeStatus.addEventListener("click", () => {
     else if (closeData.priority === "low") {priorityBadge.classList.add("priority_low");}
   });
 
+    spinerDisplay(false)
+
+
   allData.innerText = closeTab.length;
 });
 
 //  search button click data load funtion
 searchButton.addEventListener("click", () =>{
+
+    spinerDisplay(true)
+
     dataBox.innerHTML = ""; 
     const searchUrl = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${search.value}`;
     fetch(searchUrl).then(Promise => Promise.json()).then(searchData => loadSearchData(searchData.data));
@@ -400,6 +440,8 @@ searchButton.addEventListener("click", () =>{
     });
 
   }
+    spinerDisplay(false)
+
 
 })
 
