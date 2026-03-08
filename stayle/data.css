@@ -53,6 +53,11 @@
     margin-top: 50px;
 }
 
+.tab:checked{
+  background-color: #4A00FF;
+  color: white;
+}
+
 #data-Box{
     display: grid;
     grid-template-columns: repeat(3, 1fr);

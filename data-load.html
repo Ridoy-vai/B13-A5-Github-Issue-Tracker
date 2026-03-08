@@ -15,6 +15,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
+    <!-- font wasome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="stayle/data.css">
     <link rel="stylesheet" href="stayle/card.css">
@@ -23,6 +28,8 @@
 </head>
 
 <body>
+
+    <!-- Nav bar -->
     <nav>
         <div class="navbar bg-base-100 shadow-sm">
             <div class="flex flex-1 nav">
@@ -39,16 +46,16 @@
     </nav>
 
 <main class="max-w-[1100px] mx-auto mt-4">
-        <!-- name of each tab group should be unique -->
+        <!-- button tab all open and close -->
     <div>
         <div class="tabs tabs-box">
-            <input type="radio" id="all-status" name="my_tabs_1" class="tab" aria-label="All" checked="checked"/>
-            <input type="radio" id="open-status" name="my_tabs_1" class="tab" aria-label="Open" />
-            <input type="radio" id="close-status" name="my_tabs_1" class="tab" aria-label="Closed" />
+            <input type="radio" id="all-status" name="my_tabs_1" class="tab w-[100px]" aria-label="All" checked="checked"/>
+            <input type="radio" id="open-status" name="my_tabs_1" class="tab w-[100px]" aria-label="Open" />
+            <input type="radio" id="close-status" name="my_tabs_1" class="tab w-[100px]" aria-label="Closed" />
         </div>
     </div>
 
-
+    <!-- issue counter tab -->
     <div class="isuBox">
         <div class="issu-header">
             <div><img src="assets/Aperture.png" alt=""></div>
@@ -61,35 +68,24 @@
             <span class="open-status"></span><p>Open</p><span class="close-status"></span><p>close</p>
         </div>
     </div>
-
+    <!-- loading -->
     <div class="loader-box ">
         <span class="loading hidden loading-spinner loading-xl"></span>
     </div>
-
+    <!-- Data load box -->
     <div class="data-body" id="data-Box"> </div>
 </main>
 
-
 <!-- Open the modal using ID.showModal() method -->
 
-
-
-<dialog id="my_modal_1" class="modal">
-  <div class="modal-box max-w-xl">
-    <div id="detail-container" class="mx-auto width-full">
-
-        
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box max-w-2xl p-8 rounded-3xl">
+    <div id="detail-container"></div>
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="px-8 py-3 bg-[#6300FF] hover:bg-[#5200D5] text-white font-bold rounded-xl transition-all">Close</button>
+      </form>
     </div>
-    
-    <!-- Button -->
-      <div class="modal-action">
-        <form method="dialog">
-          <button class="btn btn-primary">
-            Close
-          </button>
-        </form>
-      </div>
-
   </div>
 </dialog>
    
