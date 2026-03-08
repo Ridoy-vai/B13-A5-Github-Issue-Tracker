@@ -1,9 +1,11 @@
 const allTab = [] 
 const openTab = []
 const closeTab = []
-console.log(openTab.length)
 
+// all issu array of object link
 const allIssueUrl = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
+
+// All id acces
 const dataBox = document.getElementById("data-Box");
 const allData = document.getElementById("data-count")
 const allStatus = document.getElementById("all-status")
@@ -12,8 +14,10 @@ const closeStatus = document.getElementById("close-status")
 const search = document.getElementById("search-input")
 const searchButton = document.getElementById("search-button")
 
+// fetch funtion jeson to object creat
 fetch(allIssueUrl).then(res => res.json()).then(datas => loadData(datas))
 
+// load data funtion defolt load
 function loadData(datas) {
     datas.data.forEach(element => {
     allTab.push(element);
@@ -102,7 +106,7 @@ allData.innerText = dataBox.children.length;
 
 };
 
-
+// all button tab click data load funtion
 allStatus.addEventListener("click", () => {
   dataBox.innerHTML = ""; 
 
@@ -176,7 +180,7 @@ allStatus.addEventListener("click", () => {
 
 });
 
-
+//  open button tab click data load funtion
 openStatus.addEventListener("click", () => {
   dataBox.innerHTML = "";
 
@@ -247,7 +251,7 @@ openStatus.addEventListener("click", () => {
   allData.innerText = openTab.length;
 });
 
-
+//  close button tab click data load funtion
 closeStatus.addEventListener("click", () => {
   dataBox.innerHTML = ""; // clear previous cards
 
@@ -318,7 +322,7 @@ closeStatus.addEventListener("click", () => {
   allData.innerText = closeTab.length;
 });
 
-
+//  search button click data load funtion
 searchButton.addEventListener("click", () =>{
     dataBox.innerHTML = ""; 
     const searchUrl = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${search.value}`;
@@ -399,7 +403,7 @@ searchButton.addEventListener("click", () =>{
 
 })
 
-
+// modal id conect function
 function showModalDetails(id) {
   const ModalUrl = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
 
@@ -409,6 +413,7 @@ function showModalDetails(id) {
     .catch(err => console.error("Failed to load modal details:", err));
 }
 
+// modal display load funtion
 function modalDisplay(payload) {
   const modal = payload?.data ?? payload;
   if (!modal) return;
@@ -479,7 +484,7 @@ function modalDisplay(payload) {
   document.getElementById("my_modal_5").showModal();
 }
 
-// Helper function for priority colors
+// helper function for priority colors
 function getPriorityClass(priority) {
   if (priority.toLowerCase() === 'high') return 'bg-[#EF4444]';
   if (priority.toLowerCase() === 'medium') return 'bg-[#F59E0B]';
