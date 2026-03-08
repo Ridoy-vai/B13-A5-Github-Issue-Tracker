@@ -30,14 +30,11 @@ const spinerDisplay=(status)=>{
   }
 }
 
+spinerDisplay(true) // spiner funtion call
 // load data funtion defolt load
 function loadData(datas) {
-
-  spinerDisplay(true)
-  
-  
-  datas.data.forEach(element => {
-    allTab.push(element);
+datas.data.forEach(element => {
+allTab.push(element);
 const card = document.createElement("div");
 card.innerHTML = `
   <div class="card" onclick="showModalDetails(${element.id})">
@@ -119,19 +116,20 @@ else if (element.priority === "low") priorityBadge.classList.add("priority_low")
 
 });
 
-spinerDisplay(false)
-// loaderBox.classList.add("hidden")
-//   dataBox.classList.remove("hidden")
-  
+
 allData.innerText = dataBox.children.length;  
+spinerDisplay(false)
 
 };
 
 // all button tab click data load funtion
 allStatus.addEventListener("click", () => {
-
   spinerDisplay(true)
-
+  setTimeout(() => {
+  loadAllData()
+  spinerDisplay(false)
+}, 50)
+function loadAllData(){
   dataBox.innerHTML = ""; 
 
   allTab.forEach(element => {
@@ -200,17 +198,20 @@ allStatus.addEventListener("click", () => {
 
   });
 
-  spinerDisplay(false)
-
-    allData.innerText = dataBox.children.length;
+}
+    allData.innerText = allTab.length;
 
 });
 
 //  open button tab click data load funtion
 openStatus.addEventListener("click", () => {
-
   spinerDisplay(true)
+  setTimeout(() => {
+  loadOpenData()
+  spinerDisplay(false)
+}, 50)
 
+function loadOpenData(){
   dataBox.innerHTML = "";
 
   openTab.forEach(openData => {
@@ -277,16 +278,20 @@ openStatus.addEventListener("click", () => {
     else if (openData.priority === "low") priorityBadge.classList.add("priority_low");
   });
 
-    spinerDisplay(false)
+}
 
   allData.innerText = openTab.length;
 });
 
 //  close button tab click data load funtion
 closeStatus.addEventListener("click", () => {
+  spinerDisplay(true)
+  setTimeout(() => {
+  loadCloseData()
+  spinerDisplay(false)
+}, 50)
 
-    spinerDisplay(true)
-
+function loadCloseData(){
   dataBox.innerHTML = ""; // clear previous cards
 
   closeTab.forEach(closeData => {
@@ -353,21 +358,17 @@ closeStatus.addEventListener("click", () => {
     else if (closeData.priority === "low") {priorityBadge.classList.add("priority_low");}
   });
 
-    spinerDisplay(false)
-
-
+}
   allData.innerText = closeTab.length;
 });
 
 //  search button click data load funtion
 searchButton.addEventListener("click", () =>{
 
-    spinerDisplay(true)
-
     dataBox.innerHTML = ""; 
     const searchUrl = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${search.value}`;
     fetch(searchUrl).then(Promise => Promise.json()).then(searchData => loadSearchData(searchData.data));
-
+  
   function loadSearchData(searchData){
 
     searchData.forEach(element => {
@@ -440,8 +441,6 @@ searchButton.addEventListener("click", () =>{
     });
 
   }
-    spinerDisplay(false)
-
 
 })
 

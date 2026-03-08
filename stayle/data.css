@@ -53,10 +53,6 @@
     margin-top: 50px;
 }
 
-/* .hidden{
-    display: none;
-} */
-
 .tab:checked{
   background-color: #4A00FF;
   color: white;
